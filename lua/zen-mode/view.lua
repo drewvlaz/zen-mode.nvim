@@ -242,7 +242,8 @@ function M.on_buf_win_enter()
 
     -- ensure zen mode options are set when switching buffers
     for k, v in pairs(M.opts.window.options or {}) do
-      vim.api.nvim_win_set_option(M.win, k, v)
+      -- vim.api.nvim_win_set_option(M.win, k, v)
+      vim.wo[M.win][k] = v
     end
   end
 end
